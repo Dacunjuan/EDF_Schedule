@@ -22,4 +22,5 @@ int main(int argc, char *argv[])
     Sort_Tasks(tasks, count);
     Debug_PrintAll(tasks, count);
     Utilization_Check(tasks, count);
+    Exact_Test_Check(tasks, count);
 }
