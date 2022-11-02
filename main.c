@@ -12,16 +12,14 @@ int main(int argc, char *argv[])
         {
             tasks[count].period = -1;
             tasks[count].wsct = -1;
-            count -= 1;
             break;
         }
-        printf("%d:%d:%d\n", tasks[count].id, tasks[count].period, tasks[count].wsct);
         count += 1;
-        // printf("count = %d\n", count);
         if (count == Max_Task_Count + 1)
             break;
     }
-    Debug_PrintAll(tasks, count);
+    // Debug_PrintAll(tasks, count);
     Sort_Tasks(tasks, count);
     Debug_PrintAll(tasks, count);
+    Utilization_Check(tasks, count);
 }

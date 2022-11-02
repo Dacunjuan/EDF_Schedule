@@ -12,22 +12,31 @@ struct Task
     int id, period, wsct;
 };
 
+// Debug
 void Debug_PrintAll(Task *tasks, int count);
+// Sort
 void Sort_Tasks(Task *tasks, int count);
-void SwapTask(Task main[], int a, int b);
+void SwapTask(Task *main, int a, int b);
+// Utilization test
+void Utilization_Check(Task *tasks, int count);
+double Utilization_Tasks(Task *tasks, int count);
+double Utilization_UpperBound(int count);
 //------
+/* #Debug */
 // 印出所有資訊
 void Debug_PrintAll(Task *tasks, int count)
 {
     int i = 0;
+    printf("#DEBUG PrintAll#\n");
     for (i = 0; i < count; i++)
     {
         printf("%d %d:%d:%d\n", i, tasks[i].id, tasks[i].period, tasks[i].wsct);
     }
-    printf("count = %d\n", count);
+    printf("#END#\n");
 }
+/* #Sort */
 // 交換兩個值
-void SwapTask(Task main[], int a, int b)
+void SwapTask(Task *main, int a, int b)
 {
     Task temp;
     temp.id = main[a].id;
@@ -59,14 +68,34 @@ void Sort_Tasks(Task *tasks, int count)
         SwapTask(tasks, i, min);
     }
 }
-
-int RMS_check(Task *tasks, int count)
+/* #Utilization test */
+void Utilization_Check(Task *tasks, int count)
 {
-    int i = 0, j = 0, k = 0;
+    double utilization = 0, upperbound = 0;
+    utilization = Utilization_Tasks(*(&tasks), count);
+    upperbound = Utilization_UpperBound(count);
+    if (utilization > upperbound)
+    {
+        printf("RMS:U=%.4lf>%.4lf\n", utilization, upperbound);
+    }
+    else if (utilization <= upperbound)
+    {
+        printf("RMS:U=%.4lf<=%.4lf\n", utilization, upperbound);
+    }
+}
+double Utilization_Tasks(Task *tasks, int count)
+{
+    int i;
+    double utilization = 0;
     for (i = 0; i < count; i++)
     {
-        for (j = 0; j < i; j++)
-        {
-        }
+        utilization += (double)tasks[i].wsct / (double)tasks[i].period;
     }
+    return utilization;
+}
+double Utilization_UpperBound(int count)
+{
+    double upperbound = (double)count * (pow(2, (1 / (double)count)) - 1);
+    return upperbound;
+    // U(n) = n( 2^[1/2] - 1)
 }
