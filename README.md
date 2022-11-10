@@ -17,6 +17,7 @@ makefile //makefile 編譯腳本
 
 1. 首先要先進入到 console 的環境裡，輸入 make 是直接編譯而已
 2. 輸入 make test1 就會自動編譯並喂入 file1 的資料，接著輸出結果
+   ```md
    假如輸入 make test1：
    RMS:U=0.7333<=0.8284
    exact test pass
@@ -37,3 +38,8 @@ makefile //makefile 編譯腳本
    14:I
    T1 #--#--#--#--#--
    T2 -##--#-#--##---
+   ```
+
+```
+
+```
