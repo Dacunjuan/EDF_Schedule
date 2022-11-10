@@ -176,7 +176,7 @@ double Utilization_UpperBound(int count)
 void Exact_Test_Check(Task *tasks, int count)
 {
     if (Exact_Test_Detect(*(&tasks), count))
-        printf("exact test sucess\n");
+        printf("exact test pass\n");
     else
         printf("exact test fail\n");
 }

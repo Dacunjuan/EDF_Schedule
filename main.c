@@ -22,10 +22,10 @@ int main(int argc, char *argv[])
 
     // Debug_PrintAll(tasks, count);
     Sort_Tasks(tasks, count);
-    Debug_PrintAll(tasks, count);
+    // Debug_PrintAll(tasks, count);
     Utilization_Check(tasks, count);
     Exact_Test_Check(tasks, count);
-    printf("%d\n", LCM_Tasks(tasks, count));
-    // Schdedule
+    // printf("%d\n", LCM_Tasks(tasks, count));
+    //  Schdedule
     Schedule_Check(tasks, count, LCM_Tasks(tasks, count));
 }
