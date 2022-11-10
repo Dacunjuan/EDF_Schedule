@@ -5,8 +5,11 @@
 # 檔案內容
 
 main.c //主要執行檔
+
 rm.h //放置各種 RM 排程用的函式
+
 file1~file3 //測試檔 1 到 3 裡面的格式為 taskID:Period_time:computation_time 遇到 0 代表截止
+
 makefile //makefile 編譯腳本
 
 # 環境需求
