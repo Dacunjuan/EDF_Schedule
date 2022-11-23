@@ -246,7 +246,7 @@ int Schedule_ExecDetect(Task_Schedule *tasks_schedule, int count, int time)
         Schedule_Exec(tasks_schedule[deadline_index]);
         tasks_schedule[deadline_index].execution_time += 1;
         tasks_schedule[deadline_index].status = 'E';
-        printf("%d:E:%d debugDeadLine:%d\n ", time, task_temp->id, deadline_close);
+        printf("%d:E:%d\n ", time, task_temp->id);
         execFlag = 1;
     }
     else
