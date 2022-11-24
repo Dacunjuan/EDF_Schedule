@@ -239,6 +239,17 @@ int Schedule_ExecDetect(Task_Schedule *tasks_schedule, int count, int time)
             deadline_close = deadline_temp;
             deadline_index = i;
         }
+        else if (deadline_close == deadline_temp && tasks_schedule[i].execution_time < task_temp->wset)
+        { // deadline same
+            if (tasks_schedule[i].codeword->s[time - 1] != '\0' && tasks_schedule[i].codeword->s[time - 1] == 'E')
+            { // if tasks_schedule[i] still exec continue
+                deadline_index = i;
+            }
+            else
+            {
+                continue;
+            }
+        }
     }
     Task *task_temp = tasks_schedule[deadline_index].task;
     if (deadline_index != -1 && tasks_schedule[deadline_index].execution_time < task_temp->wset)
@@ -246,7 +257,7 @@ int Schedule_ExecDetect(Task_Schedule *tasks_schedule, int count, int time)
         Schedule_Exec(tasks_schedule[deadline_index]);
         tasks_schedule[deadline_index].execution_time += 1;
         tasks_schedule[deadline_index].status = 'E';
-        printf("%d:E:%d\n ", time, task_temp->id);
+        printf("%d:E:%d\n", time, task_temp->id);
         execFlag = 1;
     }
     else

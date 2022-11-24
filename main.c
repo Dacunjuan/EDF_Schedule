@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
         if (count == Max_Task_Count + 1)
             break;
     }
-    Sort_Tasks(tasks, count);
+    // Sort_Tasks(tasks, count);
     Schedulability_main(tasks, count);
     // Utilization_Check(tasks, count);
     // Exact_Test_Check(tasks, count);
