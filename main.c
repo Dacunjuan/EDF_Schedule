@@ -7,12 +7,12 @@ int main(int argc, char *argv[])
 
     int count = 0;
     // input取值
-    while (scanf("%d:%d:%d", &tasks[count].id, &tasks[count].period, &tasks[count].wset) != EOF)
+    while (scanf("%d:%d:%d", &tasks[count].id, &tasks[count].period, &tasks[count].wcet) != EOF)
     {
         if (tasks[count].id == 0)
         {
             tasks[count].period = -1;
-            tasks[count].wset = -1;
+            tasks[count].wcet = -1;
             break;
         }
         count += 1;
